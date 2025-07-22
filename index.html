@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MULTI-D BREATHWORK - Budoucnost firemní transformace</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        /* Futuristické animované pozadí */
+        .neural-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 20%, #001122 0%, #000 40%, #001a33 100%);
+            z-index: -3;
+        }
+
+        /* Plovoucí částice */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: rgba(0, 200, 255, 0.6);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: -5s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: -10s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: -15s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: -7s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: -12s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: -3s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: -8s; }
+        .particle:nth-child(9) { left: 90%; animation-delay: -18s; }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        }
+
+        /* Hlavní dechová animace - technologická */
+        .breath-core {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            height: 400px;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .breath-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 2px solid rgba(0, 200, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .breath-ring:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            animation: breatheExpand 12s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(0, 200, 255, 0.5);
+        }
+
+        .breath-ring:nth-child(2) {
+            width: 200px;
+            height: 200px;
+            animation: breatheExpand 12s ease-in-out infinite 1s;
+            border-color: rgba(0, 150, 255, 0.2);
+        }
+
+        .breath-ring:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            animation: breatheExpand 12s ease-in-out infinite 2s;
+            border-color: rgba(0, 100, 255, 0.1);
+        }
+
+        @keyframes breatheExpand {
+            0%, 100% { 
+                transform: translate(-50%, -50%) scale(0.3);
+                opacity: 0.2;
+                filter: blur(2px);
+            }
+            50% { 
+                transform: translate(-50%, -50%) scale(2.5);
+                opacity: 0.8;
+                filter: blur(0px);
+            }
+        }
+
+        /* Holografický efekt na textu */
+        .hologram {
+            background: linear-gradient(45deg, #00c8ff, #0080ff, #00c8ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: hologramShift 3s ease-in-out infinite;
+        }
+
+        @keyframes hologramShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        /* Header s futuristickým designem */
+        .header {
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .header-text h1 {
+            font-size: 4em;
+            font-weight: 100;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .header-text h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+            animation: scanline 2s ease-in-out infinite;
+        }
+
+        @keyframes scanline {
+            0%, 100% { opacity: 0; transform: scaleX(0); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        .header-text .subtitle {
+            font-size: 1.4em;
+            color: #00c8ff;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Futuristický video placeholder */
+        .video-container {
+            position: relative;
+            height: 350px;
+            background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(0, 100, 255, 0.05));
+            border-radius: 20px;
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .video-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 200, 255, 0.2), transparent);
+            animation: videoScan 3s ease-in-out infinite;
+        }
+
+        @keyframes videoScan {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .video-placeholder {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #00c8ff;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Hlavní obsah s tech estetikou */
+        .main-content {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .main-title {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.3em;
+            line-height: 1.8;
+            color: #b0d4f0;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 80px;
+            background: rgba(0, 200, 255, 0.05);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Technologické dimenze */
+        .tech-dimensions {
+            padding: 80px 0;
+        }
+
+        .dimensions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .dimension-card {
+            background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(0, 100, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 200, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dimension-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00c8ff, transparent);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .dimension-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .dimension-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 200, 255, 0.3);
+            background: linear-gradient(135deg, rgba(0, 200, 255, 0.2), rgba(0, 100, 255, 0.1));
+        }
+
+        .tech-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #00c8ff, #0080ff);
+            color: #000;
+            border-radius: 10px;
+            text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .tech-number::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #00c8ff, #0080ff, #00c8ff);
+            border-radius: 12px;
+            z-index: -1;
+            animation: numberGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes numberGlow {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .dimension-title {
+            font-size: 1.4em;
+            color: #00c8ff;
+            margin-bottom: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dimension-description {
+            color: #b0d4f0;
+            line-height: 1.7;
+            font-size: 1.1em;
+        }
+
+        /* Futuristická kontaktní sekce */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(0, 200, 255, 0.1), rgba(0, 50, 100, 0.2));
+            backdrop-filter: blur(20px);
+            margin-top: 80px;
+            border-top: 1px solid rgba(0, 200, 255, 0.3);
+            position: relative;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,200,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .contact-title {
+            font-size: 3em;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: 100;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .contact-item {
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(0, 200, 255, 0.15), rgba(0, 100, 255, 0.05));
+            border-radius: 15px;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 200, 255, 0.3);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0, 200, 255, 0.2), transparent);
+            transition: all 0.4s ease;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+
+        .contact-item:hover::after {
+            width: 200%;
+            height: 200%;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 200, 255, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #00c8ff;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item p {
+            color: #b0d4f0;
+            font-size: 1.2em;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Responzivní design */
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                gap: 50px;
+            }
+
+            .header-text h1 {
+                font-size: 2.5em;
+            }
+
+            .main-title, .contact-title {
+                font-size: 2.2em;
+            }
+
+            .intro-text {
+                font-size: 1.1em;
+                padding: 30px;
+            }
+
+            .dimensions-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animace pro fade in efekty */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+        .fade-in:nth-child(6) { animation-delay: 0.6s; }
+        .fade-in:nth-child(7) { animation-delay: 0.7s; }
+        .fade-in:nth-child(8) { animation-delay: 0.8s; }
+        .fade-in:nth-child(9) { animation-delay: 0.9s; }
+    </style>
+</head>
+<body>
+    <!-- Futuristické pozadí -->
+    <div class="neural-background"></div>
+    
+    <!-- Plovoucí částice -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Dechová animace -->
+    <div class="breath-core">
+        <div class="breath-ring"></div>
+        <div class="breath-ring"></div>
+        <div class="breath-ring"></div>
+    </div>
+
+    <!-- Header sekce -->
+    <section class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="hologram">MULTI-D BREATHWORK</h1>
+                    <p class="subtitle">Moderní dechová terapie pro profesionály</p>
+                </div>
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <p>▶ UKÁZKA METODY</p>
+                        <p style="font-size: 0.8em; margin-top: 10px;">Místo pro demonstrační video</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hlavní obsah -->
+    <section class="main-content">
+        <div class="container">
+            <h2 class="main-title hologram">PROČ TO FUNGUJE</h2>
+            <div class="intro-text">
+                <p>Inovativní metoda, která spojuje tradiční dechové techniky se zvukovou technologií a relaxačními postupy. Během jedné hodiny dokážeme snížit váš stres, zlepšit vaše soustředění a obnovit vaši energii. Metoda je založená na kontrolovaném dýchání se speciálně navrženým zvukem, který vám pomáhá dosáhnout hlubokého uvolnění a mentální jasnosti. Ideální pro každého, kdo chce rychle a efektivně řešit stres, úzkost a vyhoření.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-dimenzionální technologie -->
+    <section class="tech-dimensions">
+        <div class="container">
+            <h2 class="main-title hologram">9 KLÍČOVÝCH PRVKŮ METODY</h2>
+            <div class="dimensions-grid">
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">1</div>
+                    <h3 class="dimension-title">Prostorový zvuk</h3>
+                    <p class="dimension-description">Speciálně navržená hudba, která vás obklopí ze všech stran a pomůže vám dosáhnout hlubokého uvolnění a soustředění.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">2</div>
+                    <h3 class="dimension-title">Synchronizace mozku</h3>
+                    <p class="dimension-description">Zvukové frekvence, které pomáhají sladit práci obou polovin vašeho mozku pro lepší soustředění a jasné myšlení.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">3</div>
+                    <h3 class="dimension-title">Léčivé frekvence</h3>
+                    <p class="dimension-description">Používáme tóny, které vědecky dokázaně snižují stres, úzkost a napětí ve vašem těle a mysli.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">4</div>
+                    <h3 class="dimension-title">Relaxace mozku</h3>
+                    <p class="dimension-description">Zvuky, které pomáhají vašemu mozku přejít do klidného stavu, podobného hlubokému spánku, ale při vědomí.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">5</div>
+                    <h3 class="dimension-title">Harmonické ladění</h3>
+                    <p class="dimension-description">Zvuk je naladěný tak, aby se vaše tělo cítilo v harmonii a rovnováze, což podporuje přirozené léčebné procesy.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">6</div>
+                    <h3 class="dimension-title">Uvolnění napětí</h3>
+                    <p class="dimension-description">Speciální dechové techniky, které vám pomáhají uvolnit nahromaděné napětí a stres z celého těla.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">7</div>
+                    <h3 class="dimension-title">Mentální reset</h3>
+                    <p class="dimension-description">Jemné techniky, které vám pomáhají "restartovat" myšlení a zbavit se negativních myšlenkových vzorců.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">8</div>
+                    <h3 class="dimension-title">Změna myšlení</h3>
+                    <p class="dimension-description">Postupy, které vám pomáhají změnit způsob, jak vnímáte stresové situace a jak na ně reagujete.</p>
+                </div>
+
+                <div class="dimension-card fade-in">
+                    <div class="tech-number">9</div>
+                    <h3 class="dimension-title">Hlubinné působení</h3>
+                    <p class="dimension-description">Jemné zvukové impulzy, které působí na nevědomé úrovni a zesilují celkový účinek relaxace.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="contact-title hologram">KONTAKTUJTE NÁS</h2>
+            <p style="font-size: 1.3em; color: #b0d4f0; text-align: center; margin-bottom: 50px;">
+                Chcete vyzkoušet naši metodu? Napište nebo zavolejte pro konzultaci zdarma.
+            </p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <p>info@multid-breathwork.cz</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📞 Telefon</h3>
+                    <p>+420 XXX XXX XXX</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>🌐 Web</h3>
+                    <p>www.multid-breathwork.cz</p>
+                </div>
+                
+                <div class="contact-item">
+                    <h3>📍 Místo</h3>
+                    <p>Praha, Česká republika<br>Přijdeme za vámi nebo online sesení</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
